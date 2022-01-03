@@ -4,7 +4,7 @@ export const bookCar = (reqObj) => async (dispatch) => {
   dispatch({ type: "LOADING", payload: true });
 
   try {
-  await axios.post(`${process.env.REACT_APP_BACKEND}/api/bookings/bookcar`,reqObj);
+  await axios.post("/api/bookings/bookcar",reqObj);
 
     dispatch({ type: "LOADING", payload: false });
     message.success("Your car booked Successfuly");
@@ -30,7 +30,7 @@ export const  getAllBookings=()=>async dispatch=>{
   
   try{
   
-  const response = await axios.get(`${process.env.REACT_APP_BACKEND}/api/bookings/getAllBookings`)
+  const response = await axios.get('/api/bookings/getAllBookings')
   
   dispatch({type: "GET_ALL_BOOKINGS", payload:response.data })
   dispatch({type:'LOADING', payload:false})
